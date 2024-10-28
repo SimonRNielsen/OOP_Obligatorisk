@@ -23,25 +23,26 @@ namespace Zoo_Simulator
     /// </summary>
     public partial class MainWindow : Window
     {
-        
-        public ObservableCollection<Tiger> TigerCage { get; set; }
-        public ObservableCollection<Parrot> Aviary { get; set; }
-        public ObservableCollection<Monkey> MonkeyCage { get; set; }
+
+        public ObservableCollection<Tiger> TigerCageList { get; set; }
+        public ObservableCollection<Parrot> AviaryList { get; set; }
+        public ObservableCollection<Monkey> MonkeyCageList { get; set; }
         public ObservableCollection<Zookeeper> Zookeepers { get; set; }
         public List<Food> FoodStorage { get; set; }
 
         public MainWindow()
         {
             InitializeComponent();
-            TigerCage = new ObservableCollection<Tiger>();
-            Aviary = new ObservableCollection<Parrot>();
-            MonkeyCage = new ObservableCollection<Monkey>();
+            TigerCageList = new ObservableCollection<Tiger>();
+            AviaryList = new ObservableCollection<Parrot>();
+            MonkeyCageList = new ObservableCollection<Monkey>();
             Zookeepers = new ObservableCollection<Zookeeper>();
             FoodStorage = new List<Food>();
         }
 
         private void UpdateInventoryButton_Click(object sender, RoutedEventArgs e)
         {
+            Zookeepers[0] = new Zookeeper();
             Zookeeper selectedZookeeper = Zookeepers[0];
             if (selectedZookeeper == null)
             {
@@ -53,27 +54,43 @@ namespace Zoo_Simulator
                 TextOutput.Text = $"{(ZookeeperName)selectedZookeeper.Name} has checked the food inventory";
                 BananaCount.Text = $"{bananaCount} Bananas";
                 BirdSeedCount.Text = $"{birdSeedCount} Birdseeds";
-                MeatCount.Text = $"{meatCount} Meat";
+                MeatCount.Text = $"{meatCount} Meatpackets";
             }
         }
 
-        public List<string> CheckAnimals(Zookeeper zookeeper, ObservableCollection<Tiger> tigerCage, ObservableCollection<Monkey> monkeyCage, ObservableCollection<Parrot> aviary)
+        private void AddAnimalButton_Click(object sender, RoutedEventArgs e)
         {
-            List<string> list = new List<string>();
-            list.Add($"{(ZookeeperName)zookeeper.Name} has checked the animals and discerned the following");
-            foreach (Tiger tiger in tigerCage)
-            {
-                list.Add($"{tiger.Name} the {tiger.Type} is {(Mood)tiger.GetMood()} and looks {(Health)tiger.Health}");
-            }
-            foreach (Monkey monkey in monkeyCage)
-            {
-                list.Add($"{monkey.Name} the {monkey.Type} is {(Mood)monkey.GetMood()} and looks {(Health)monkey.Health}");
-            }
-            foreach (Parrot parrot in aviary)
-            {
-                list.Add($"{parrot.Name} the {parrot.Type} is {(Mood)parrot.GetMood()} and looks {(Health)parrot.Health}");
-            }
-            return list;
+
+        }
+
+        private void NewParrotCheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void NewTigerCheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void NewMonkeyCheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void FeedAnimalsButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void CheckAnimalsButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void HireFireButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 

@@ -13,10 +13,9 @@ namespace Zoo_Simulator
 
         public string Type { get => type; set => type = value; }
 
-        public Tiger(string name, int age) : base(name, age)
+        public Tiger(string name) : base(name)
         {
             base.Name = name;
-            base.Age = age;
         }
 
         public override int GetMood()

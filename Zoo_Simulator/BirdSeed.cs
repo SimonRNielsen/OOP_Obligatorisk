@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Zoo_Simulator
 {
-    public class BirdSeed : Food
+    public class Birdseed : Food
     {
     }
 }

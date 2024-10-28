@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace Zoo_Simulator
 {
@@ -49,7 +50,7 @@ namespace Zoo_Simulator
         private int age;
         static Random rng = new Random();
 
-        Zookeeper()
+        public Zookeeper()
         {
             this.Name = rng.Next(1, 30);
             this.Age = rng.Next(20, 60);
@@ -58,30 +59,30 @@ namespace Zoo_Simulator
         public int Name { get => name; private set => name = value; }
         public int Age { get => age; private set => age = value; }
 
-        public void FeedTigers(ObservableCollection<Animal> animals, List<Food> food, TextBox text)
+        public void FeedTigers(ObservableCollection<Animal> animals, List<Food> food, TextBlock text)
         {
             foreach (Tiger animal in animals)
             {
                 animal.Eat(food);
-                text.Text = $"{(ZookeeperName)this.Name} has feed the tigers";                
+                text.Text = $"{(ZookeeperName)this.Name} has fed the tigers";                
             }
         }
 
-        public void FeedParrots(ObservableCollection<Animal> animals, List<Food> food, TextBox text)
+        public void FeedParrots(ObservableCollection<Animal> animals, List<Food> food, TextBlock text)
         {
             foreach (Parrot animal in animals)
             {
                 animal.Eat(food);
-                text.Text = $"{(ZookeeperName)this.Name} has feed the tigers";
+                text.Text = $"{(ZookeeperName)this.Name} has fed the tigers";
             }
         }
 
-        public void FeedMonkeys(ObservableCollection<Animal> animals, List<Food> food, TextBox text)
+        public void FeedMonkeys(ObservableCollection<Animal> animals, List<Food> food, TextBlock text)
         {
             foreach (Monkey animal in animals)
             {
                 animal.Eat(food);
-                text.Text = $"{(ZookeeperName)this.Name} has feed the tigers";
+                text.Text = $"{(ZookeeperName)this.Name} has fed the tigers";
             }
         }
 
@@ -124,6 +125,49 @@ namespace Zoo_Simulator
                 list.Add($"{parrot.Name} the {parrot.Type} is {(Mood)parrot.GetMood()} and looks {(Health)parrot.Health}");
             }
             return list;
+        }
+
+        public List<string> CheckAnimals(Zookeeper zookeeper, ObservableCollection<Tiger> tigerCage, ObservableCollection<Monkey> monkeyCage, ObservableCollection<Parrot> aviary, TextBlock text)
+        {
+            List<string> list = new List<string>();
+            if (zookeeper == null)
+            {
+                text.Text = "No zookeeper selected";
+            }
+            else
+            {
+                list.Add($"{(ZookeeperName)zookeeper.Name} has checked the animals and discerned the following");
+                foreach (Tiger tiger in tigerCage)
+                {
+                    list.Add($"{tiger.Name} the {tiger.Type} is {(Mood)tiger.GetMood()} and looks {(Health)tiger.Health}");
+                }
+                foreach (Monkey monkey in monkeyCage)
+                {
+                    list.Add($"{monkey.Name} the {monkey.Type} is {(Mood)monkey.GetMood()} and looks {(Health)monkey.Health}");
+                }
+                foreach (Parrot parrot in aviary)
+                {
+                    list.Add($"{parrot.Name} the {parrot.Type} is {(Mood)parrot.GetMood()} and looks {(Health)parrot.Health}");
+                }
+            }
+            return list;
+        }
+
+        public void StockInventory(int buyBananas, int buyBirdseed, int buyMeat, List<Food> foodStorage, TextBlock output, Zookeeper zookeeper)
+        {
+            for (int i = 0; i < buyBananas; i++)
+            {
+                foodStorage.Add(new Banana());
+            }
+            for (int i = 0; i < buyBirdseed; i++)
+            {
+                foodStorage.Add(new Birdseed());
+            }
+            for (int i = 0; i < buyMeat; i++)
+            {
+                foodStorage.Add(new Meat());
+            }
+            output.Text = $"{(ZookeeperName)zookeeper.Name} has stocked the food storage with {buyBananas} bananas, {buyBirdseed} birdseed and {buyMeat} meatpackets";
         }
     }
 }

@@ -9,17 +9,14 @@ namespace Zoo_Simulator
     public abstract class Animal
     {
         protected string name;
-        protected int age;
         protected int mood = 3;
         protected int health = 3;
 
-        public Animal(string name, int age)
+        public Animal(string name)
         {
             this.Name = name;
-            this.Age = age;
         }
 
-        public int Age { get => age; set => age = value; }
         public string Name { get => name; set => name = value; }
         public int Mood 
         { 

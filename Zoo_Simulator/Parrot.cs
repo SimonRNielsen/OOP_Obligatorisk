@@ -12,10 +12,9 @@ namespace Zoo_Simulator
 
         public string Type { get => type; set => type = value; }
 
-        public Parrot(string name, int age) : base(name, age)
+        public Parrot(string name) : base(name)
         {
             base.Name = name;
-            base.Age = age;
         }
 
         public override int GetMood()
@@ -35,7 +34,7 @@ namespace Zoo_Simulator
                 int lastIndex = -1;
                 for (int i = food.Count - 1; i >= 0; i--)
                 {
-                    if (food[i] is BirdSeed)
+                    if (food[i] is Birdseed)
                     {
                         lastIndex = i;
                         break;

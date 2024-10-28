@@ -59,7 +59,7 @@
     <Compile Include="Banana.cs" />
     <Compile Include="Food.cs" />
     <Compile Include="Meat.cs" />
-    <Compile Include="BirdSeed.cs" />
+    <Compile Include="Birdseed.cs" />
     <Compile Include="Tiger.cs" />
     <Compile Include="Zookeeper.cs" />
     <Page Include="MainWindow.xaml">

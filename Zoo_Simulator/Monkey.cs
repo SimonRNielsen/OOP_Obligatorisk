@@ -12,10 +12,9 @@ namespace Zoo_Simulator
 
         public string Type { get => type; set => type = value; }
 
-        public Monkey(string name, int age) : base(name, age)
+        public Monkey(string name) : base(name)
         {
             base.Name = name;
-            base.Age = age;
         }
 
         public override int GetMood()

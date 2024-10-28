@@ -1,0 +1,20 @@
+﻿<Window x:Class="Zoo_Simulator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Zoo_Simulator"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <TextBox x:Name="TextOutput" HorizontalAlignment="Left" Height="86" Margin="556,62,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="210"/>
+        <Button x:Name="UpdateInventoryButton" Content="Update" HorizontalAlignment="Left" Margin="641,232,0,0" VerticalAlignment="Top" Click="UpdateInventoryButton_Click"/>
+        <TextBox x:Name="BananaCount" HorizontalAlignment="Left" Margin="601,174,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="BirdSeedCount" HorizontalAlignment="Left" Margin="601,192,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="MeatCount" TextWrapping="Wrap" Text="" Width="120" Margin="601,210,79,207"/>
+        <TextBox HorizontalAlignment="Left" Margin="27,42,0,0" TextWrapping="Wrap" Text="Aviary" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Margin="185,42,0,0" TextWrapping="Wrap" Text="Tiger Cage" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Center" Margin="0,42,0,0" TextWrapping="Wrap" Text="Monkey Cage" VerticalAlignment="Top" Width="120"/>
+
+    </Grid>
+</Window>

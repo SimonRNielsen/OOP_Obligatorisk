@@ -8,37 +8,37 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <TextBlock x:Name="TextOutput" HorizontalAlignment="Left" Height="115" Margin="508,33,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="258"/>
-        <Button x:Name="UpdateInventoryButton" Content="Update" HorizontalAlignment="Left" Margin="140,8,0,0" VerticalAlignment="Top" Click="UpdateInventoryButton_Click"/>
+        <Button x:Name="UpdateInventoryButton" Content="Update" HorizontalAlignment="Left" Margin="253,6,0,0" VerticalAlignment="Top" Click="UpdateInventoryButton_Click"/>
         <TextBlock x:Name="BananaCount" HorizontalAlignment="Left" Margin="214,29,0,0" TextWrapping="Wrap" Text="0 Bananas" VerticalAlignment="Top" Width="96"/>
         <TextBlock x:Name="BirdSeedCount" HorizontalAlignment="Left" Margin="14,29,0,0" TextWrapping="Wrap" Text="0 Birdseeds" VerticalAlignment="Top" Width="99"/>
         <TextBlock x:Name="MeatCount" TextWrapping="Wrap" Text="0 Meatpackets" Margin="113,28,584,388"/>
         <TextBlock HorizontalAlignment="Left" Margin="34,45,0,0" TextWrapping="Wrap" Text="Aviary" VerticalAlignment="Top" Width="120"/>
         <TextBlock HorizontalAlignment="Left" Margin="133,45,0,0" TextWrapping="Wrap" Text="Tiger Cage" VerticalAlignment="Top" Width="120"/>
         <TextBlock HorizontalAlignment="Left" Margin="234,45,0,0" TextWrapping="Wrap" Text="Monkey Cage" VerticalAlignment="Top" Width="118"/>
-        <ListBox x:Name="Aviary" ItemsSource="{Binding AviaryList}" Margin="14,68,693,64" SelectedItem="{Binding SelectedItem, Mode=TwoWay}">
+        <ListBox x:Name="Aviary" ItemsSource="{Binding AviaryList}" Margin="14,68,693,64">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding Name}" Margin="5"/>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <ListBox x:Name="TigerCage" ItemsSource="{Binding TigerCageList}" Margin="112,68,592,64" SelectedItem="{Binding SelectedItem, Mode=TwoWay}">
+        <ListBox x:Name="TigerCage" ItemsSource="{Binding TigerCageList}" Margin="112,68,592,64">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding Name}" Margin="5"/>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <ListBox x:Name="MonkeyCage" ItemsSource="{Binding MonkeyCageList}" Margin="213,68,495,64" SelectedItem="{Binding SelectedItem, Mode=TwoWay}">
+        <ListBox x:Name="MonkeyCage" ItemsSource="{Binding MonkeyCageList}" Margin="213,68,495,64">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding Name}" Margin="5"/>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <TextBlock HorizontalAlignment="Left" Margin="193,10,0,0" TextWrapping="Wrap" Text="Food Storage" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="113,7,0,0" TextWrapping="Wrap" Text="Food Storage" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="602,153,0,0" TextWrapping="Wrap" Text="Zookeeper(s)" VerticalAlignment="Top"/>
-        <ListBox x:Name="ZookeeperBox" ItemsSource="{Binding Zookeepers}" Margin="508,174,34,155" SelectedItem="{Binding SelectedZookeeper, Mode=TwoWay}">
+        <ListBox x:Name="ZookeeperBox" ItemsSource="{Binding Zookeepers}" Margin="508,174,34,155">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding DisplayName}" Margin="5"/>
@@ -46,18 +46,18 @@
             </ListBox.ItemTemplate>
         </ListBox>
         <TextBlock HorizontalAlignment="Left" Margin="620,17,0,0" TextWrapping="Wrap" Text="Events" VerticalAlignment="Top"/>
-        <CheckBox x:Name="AviaryCheckBox" Content="" HorizontalAlignment="Left" Margin="14,45,0,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="TigerCageCheckBox" Content="" HorizontalAlignment="Left" Margin="113,45,0,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="MonkeyCageCheckBox" Content="" HorizontalAlignment="Left" Margin="214,45,0,0" VerticalAlignment="Top" Width="20"/>
+        <CheckBox x:Name="AviaryCheckBox" Content="" HorizontalAlignment="Left" Margin="14,45,0,0" VerticalAlignment="Top" Checked="AviaryCheckBox_Checked" Unchecked="AviaryCheckBox_UnChecked"/>
+        <CheckBox x:Name="TigerCageCheckBox" Content="" HorizontalAlignment="Left" Margin="113,45,0,0" VerticalAlignment="Top" Checked="TigerCageCheckBox_Checked" Unchecked="TigerCageCheckBox_UnChecked"/>
+        <CheckBox x:Name="MonkeyCageCheckBox" Content="" HorizontalAlignment="Left" Margin="214,45,0,0" VerticalAlignment="Top" Width="20" Checked="MonkeyCageCheckBox_Checked" Unchecked="MonkeyCageCheckBox_UnChecked"/>
         <Button x:Name="FeedAnimalsButton" Content="Feed animals" HorizontalAlignment="Left" Margin="506,284,0,0" VerticalAlignment="Top" Click="FeedAnimalsButton_Click"/>
         <Button x:Name="CheckAnimalsButton" Content="Check animals" HorizontalAlignment="Left" Margin="584,284,0,0" VerticalAlignment="Top" Click="CheckAnimalsButton_Click"/>
         <Button x:Name="AddAnimalButton" Content="Add new animal" HorizontalAlignment="Left" Margin="24,404,0,0" VerticalAlignment="Top" Click="AddAnimalButton_Click"/>
         <Button x:Name="FireButton" Content="Fire Zookeeper" HorizontalAlignment="Left" Margin="669,284,0,0" VerticalAlignment="Top" Click="FireButton_Click"/>
-        <ListBox x:Name="NewZookeepersBox" ItemsSource="{Binding HireableZookeepers}" Margin="543,332,76,32" SelectedItem="{Binding SelectedZookeeper, Mode=TwoWay}">
+        <ListBox x:Name="NewZookeepersBox" ItemsSource="{Binding HireableZookeepers}" Margin="543,332,76,32">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                        <CheckBox IsChecked="{Binding IsSelected, Mode=TwoWay}" Margin="5"/>
+                        <!--<CheckBox IsChecked="{Binding IsSelected, Mode=TwoWay}" Margin="5"/>-->
                         <TextBlock Text="{Binding DisplayName}" Margin="5"/>
                     </StackPanel>
                 </DataTemplate>
@@ -65,15 +65,22 @@
         </ListBox>
         <TextBlock HorizontalAlignment="Left" Margin="581,311,0,0" TextWrapping="Wrap" Text="Potential zookeepers" VerticalAlignment="Top"/>
         <TextBox x:Name="NewAnimalName" HorizontalAlignment="Left" Margin="123,405,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <CheckBox x:Name="NewParrotCheckBox" Content="Parrot" HorizontalAlignment="Left" Margin="253,381,0,0" VerticalAlignment="Top" Checked="NewParrotCheckBox_Checked" IsChecked="{Binding NewParrot, Mode=TwoWay}"/>
-        <CheckBox x:Name="NewTigerCheckBox" Content="Tiger" HorizontalAlignment="Left" Margin="253,397,0,0" VerticalAlignment="Top" Checked="NewTigerCheckBox_Checked" IsChecked="{Binding NewTiger, Mode=TwoWay}"/>
-        <CheckBox x:Name="NewMonkeyCheckBox" Content="Monkey" HorizontalAlignment="Left" Margin="253,412,0,0" VerticalAlignment="Top" Checked="NewMonkeyCheckBox_Checked" IsChecked="{Binding NewMonkey, Mode=TwoWay}"/>
-        <TextBlock x:Name="AnimalConditionBox" Text="" Margin="316,24,299,22"/>
-        <TextBlock HorizontalAlignment="Left" Margin="363,6,0,0" TextWrapping="Wrap" Text="Animal condition" VerticalAlignment="Top"/>
+        <CheckBox x:Name="NewParrotCheckBox" Content="Parrot" HorizontalAlignment="Left" Margin="253,381,0,0" VerticalAlignment="Top" Checked="NewParrotCheckBox_Checked" Unchecked="NewParrotCheckBox_UnChecked"/>
+        <CheckBox x:Name="NewTigerCheckBox" Content="Tiger" HorizontalAlignment="Left" Margin="253,397,0,0" VerticalAlignment="Top" Checked="NewTigerCheckBox_Checked" Unchecked="NewTigerCheckBox_UnChecked"/>
+        <CheckBox x:Name="NewMonkeyCheckBox" Content="Monkey" HorizontalAlignment="Left" Margin="253,412,0,0" VerticalAlignment="Top" Checked="NewMonkeyCheckBox_Checked" Unchecked="NewMonkeyCheckBox_UnChecked"/>
+        <TextBlock x:Name="AnimalConditionBox" Text="" Margin="316,0,299,22" Height="344" VerticalAlignment="Bottom"/>
+        <TextBlock HorizontalAlignment="Left" Margin="363,47,0,0" TextWrapping="Wrap" Text="Animal condition" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="123,387,0,0" TextWrapping="Wrap" Text="Animal name:" VerticalAlignment="Top"/>
         <Button x:Name="RemoveAnimal" Content="Remove animal" HorizontalAlignment="Left" Margin="26,378,0,0" VerticalAlignment="Top" Click="RemoveAnimal_Click"/>
         <Button x:Name="HireButton" Content="Hire zookeeper" HorizontalAlignment="Left" Margin="595,405,0,0" VerticalAlignment="Top" Click="HireButton_Click"/>
-        
+        <TextBox x:Name="IndexSelecter" HorizontalAlignment="Left" Margin="395,9,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="310,10,0,0" TextWrapping="Wrap" Text="Index selection" VerticalAlignment="Top" Width="85"/>
+        <CheckBox x:Name="HireZookeeperCheckBox" Content="" HorizontalAlignment="Left" Margin="732,359,0,0" VerticalAlignment="Top" Checked="HireZookeeperCheckBox_Checked" Unchecked="HireZookeeperCheckBox_UnChecked"/>
+        <CheckBox x:Name="SelectZookeepersCheckBox" Content="" HorizontalAlignment="Left" Margin="771,215,0,0" VerticalAlignment="Top" Checked="SelectZookeepersCheckBox_Checked" Unchecked="SelectZookeepersCheckBox_UnChecked"/>
+        <TextBlock HorizontalAlignment="Left" Margin="416,28,0,0" TextWrapping="Wrap" Text="Use for any list" VerticalAlignment="Top"/>
+        <Button x:Name="NextDayButton" Content="Next Day" HorizontalAlignment="Left" Margin="29,6,0,0" VerticalAlignment="Top" Click="NextDayButton_Click"/>
+        <Button x:Name="OrderFoodButton" Content="Buy Food" HorizontalAlignment="Left" Margin="194,6,0,0" VerticalAlignment="Top" Click="OrderFoodButton_Click"/>
+
 
     </Grid>
 </Window>

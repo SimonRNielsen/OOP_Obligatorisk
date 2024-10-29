@@ -48,6 +48,7 @@ namespace Zoo_Simulator
     {
         private int name;
         private int age;
+        private string displayName;
         static Random rng = new Random();
 
         public Zookeeper()
@@ -58,31 +59,32 @@ namespace Zoo_Simulator
 
         public int Name { get => name; private set => name = value; }
         public int Age { get => age; private set => age = value; }
+        public string DisplayName => ((ZookeeperName)this.Name + " " + this.Age).ToString();
 
-        public void FeedTigers(ObservableCollection<Animal> animals, List<Food> food, TextBlock text)
+        public void FeedTigers(ObservableCollection<Tiger> animals, List<Food> food, TextBlock text)
         {
             foreach (Tiger animal in animals)
             {
                 animal.Eat(food);
-                text.Text = $"{(ZookeeperName)this.Name} has fed the tigers";                
+                text.Text += $"\n{(ZookeeperName)this.Name} has fed the tigers";                
             }
         }
 
-        public void FeedParrots(ObservableCollection<Animal> animals, List<Food> food, TextBlock text)
+        public void FeedParrots(ObservableCollection<Parrot> animals, List<Food> food, TextBlock text)
         {
             foreach (Parrot animal in animals)
             {
                 animal.Eat(food);
-                text.Text = $"{(ZookeeperName)this.Name} has fed the tigers";
+                text.Text += $"\n{(ZookeeperName)this.Name} has fed the parrots";
             }
         }
 
-        public void FeedMonkeys(ObservableCollection<Animal> animals, List<Food> food, TextBlock text)
+        public void FeedMonkeys(ObservableCollection<Monkey> animals, List<Food> food, TextBlock text)
         {
             foreach (Monkey animal in animals)
             {
                 animal.Eat(food);
-                text.Text = $"{(ZookeeperName)this.Name} has fed the tigers";
+                text.Text += $"\n{(ZookeeperName)this.Name} has fed the monkeys";
             }
         }
 
@@ -108,21 +110,21 @@ namespace Zoo_Simulator
             }
         }
 
-        public List<string> CheckAnimals(Zookeeper zookeeper, ObservableCollection<Tiger> tigerCage, ObservableCollection<Monkey> monkeyCage, ObservableCollection<Parrot> aviary)
+        public string CheckAnimals(ObservableCollection<Tiger> tigerCage, ObservableCollection<Monkey> monkeyCage, ObservableCollection<Parrot> aviary)
         {
-            List<string> list = new List<string>();
-            list.Add($"{(ZookeeperName)zookeeper.Name} has checked the animals and discerned the following");
+            string list;
+            list = $"{(ZookeeperName)this.Name} has checked the animals and discerned the following:";
             foreach (Tiger tiger in tigerCage)
             {
-                list.Add($"{tiger.Name} the {tiger.Type} is {(Mood)tiger.GetMood()} and looks {(Health)tiger.Health}");
+                list += $"\n{tiger.Name} the {tiger.Type} is {(Mood)tiger.GetMood()} and looks {(Health)tiger.Health}";
             }
             foreach (Monkey monkey in monkeyCage)
             {
-                list.Add($"{monkey.Name} the {monkey.Type} is {(Mood)monkey.GetMood()} and looks {(Health)monkey.Health}");
+                list += $"\n{monkey.Name} the {monkey.Type} is {(Mood)monkey.GetMood()} and looks {(Health)monkey.Health}";
             }
             foreach (Parrot parrot in aviary)
             {
-                list.Add($"{parrot.Name} the {parrot.Type} is {(Mood)parrot.GetMood()} and looks {(Health)parrot.Health}");
+                list += $"\n{parrot.Name} the {parrot.Type} is {(Mood)parrot.GetMood()} and looks {(Health)parrot.Health}";
             }
             return list;
         }
